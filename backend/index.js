@@ -17,6 +17,7 @@ connectDB();
 app.use(
   cors({
     origin: "http://localhost:5173",
+    // origin: "https://blogapp-83fo.onrender.com",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })

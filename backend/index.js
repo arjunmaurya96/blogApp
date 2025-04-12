@@ -14,10 +14,32 @@ const { connectDB } = require("./dbconnect")
 connectDB();
 
 // ✅ Middleware Configuration
+// app.use(
+//   cors({
+//     // origin: "http://localhost:5173",
+//     origin:process.env.FRONTEND_URL,
+//     // origin: "https://blogapp-83fo.onrender.com",
+//     credentials: true,
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//   })
+// );
+
+
+
+const allowedOrigins = [
+  "http://localhost:5173", // dev
+  process.env.FRONTEND_URL, // production (from .env)
+];
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
-    // origin: "https://blogapp-83fo.onrender.com",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })

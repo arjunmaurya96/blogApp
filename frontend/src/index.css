@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins&family=Roboto:wght@400;700&display=swap');
+
+body{
+    font-family: "Poppins", serif;
+    background-color: #f0f8ff;
+
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Roboto', serif;
+}
+
+span{
+    font-family: "Fredoka", serif;
+}
+.parent {
+    width: 30%;
+    font-size: 15px;
+    height: auto;
+    margin: auto;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5),
+                0 6px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid black;
+    box-sizing: border-box; 
+}
+
+/* For tablets and smaller devices */
+@media (max-width: 768px) {
+    .parent {
+        width: 50%;
+        font-size: 14px;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+    .parent {
+        width: 80%;
+        font-size: 12px;
+    }
+}
+
+/* For very small devices (e.g., small phones) */
+@media (max-width: 360px) {
+    .parent {
+        width: 90%;
+        font-size: 11px;
+    }
+}
+
+  
+  .formcontrol{
+    /* height: 400px; */
+  }
+  
+
+
+/* hero  */
+
+  .card-img-container {
+    overflow: hidden;
+  }
+  
+  .hover-zoom {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .hover-zoom:hover {
+    transform: scale(1.1);
+  }
+  
+  @media (max-width: 768px) {
+    .card-title {
+      font-size: 1rem;
+      padding: 4px;
+    }
+  
+    .card-body img {
+      height: 45px !important;
+      width: 45px !important;
+    }
+  }
+
+  /* footer  */
+
+/* Responsive Footer Text Alignment */
+@media (max-width: 768px) {
+  .row > div {
+    text-align: center !important;
+  }
+}
+
+.footer-link {
+  position: relative;
+  text-decoration: none;
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: skyblue;
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover {
+  color: rgba(7, 7, 7, 0.641);
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
+
+
+/* dashboard  */
+button {
+  font-family: "Inter", sans-serif;
+}
+
+/* Define CSS variables for reusability */
+:root {
+  --offcanvas-width: 270px; /* Custom width for the offcanvas */
+  --topNavbarHeight: 56px;  /* Height of the top navbar */
+}
+
+/* Apply the custom width to the offcanvas */
+.offcanvas-start.sidebar-nav {
+  width: var(--offcanvas-width);
+}
+
+/* Media query for larger screens (min-width: 992px) */
+@media (min-width: 992px) {
+body{
+  overflow: auto !important;
+}
+
+  .offcanvas-backdrop::before {
+      display: none;
+  }
+
+  .offcanvas-start.sidebar-nav {
+      transform: none; /* Ensure the sidebar is visible */
+      visibility: visible !important;
+      top: var(--topNavbarHeight); /* Position below the navbar */
+      height: calc(100% - var(--topNavbarHeight)); /* Fill the remaining height */
+  }
+  main{
+      margin-left: var(--offcanvas-width);
+  }
+}
+
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-link .right-icon {
+  display: inline-flex;
+  transition: transform 0.3s ease; /* Smooth rotation animation */
+}
+
+/* Rotate the icon when the sidebar-link is expanded */
+.sidebar-link[aria-expanded="true"] .right-icon {
+  transform: rotate(180deg);
+}
+
+
+
+ /* dashboard  */
+
+ @media (max-width: 768px) {
+  .bg-dark {
+    width: 100%; /* Make the sidebar take full width on smaller screens */
+  }
+  .p-3 {
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+}
+
+
+
+/* create blog  */
+/* Base: Desktop */
+.blog-form-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  width: 100%;
+}
+
+.blog-form-card {
+  width: 100%;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+/* Tablet View */
+@media (max-width: 992px) {
+  .blog-form-container {
+    padding: 1.5rem;
+  }
+
+  .blog-form-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 576px) {
+  .blog-form-container {
+    padding: 1rem;
+  }
+
+  .blog-form-card {
+    padding: 1rem;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .form-control,
+  .form-label,
+  .btn {
+    font-size: 14px;
+  }
+
+  .form-label img {
+    height: 40px;
+    width: 40px;
+  }
+}

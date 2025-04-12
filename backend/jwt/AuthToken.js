@@ -44,7 +44,7 @@ const createTokenAndSave = async (userId) => {
         // Update the user's record in the database with the new token
         await User.findByIdAndUpdate(userId, { token }, { new: true });
 
-        console.log("Token created:", token);
+        // console.log("Token created:", token);
         return token; // Send token to frontend
     } catch (error) {
         console.error("Error creating token:", error.message);

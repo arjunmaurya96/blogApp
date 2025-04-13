@@ -6,9 +6,9 @@ const userRoute = require("./routes/UserRoute");
 const blogRoute = require("./routes/BlogRoute");
 const fileUpload = require("express-fileupload");
 const cloudinary = require("cloudinary").v2;
+const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 8080;
-
 const { connectDB } = require("./dbconnect")
 connectDB();
 
@@ -23,7 +23,7 @@ connectDB();
 //   })
 // );
 
-const cors = require("cors");
+
 
 
 const allowedOrigins = [

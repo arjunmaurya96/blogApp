@@ -14,36 +14,36 @@ const { connectDB } = require("./dbconnect")
 connectDB();
 
 // ✅ Middleware Configuration
-// app.use(
-//   cors({
-//     // origin: "http://localhost:5173",
-//     origin:process.env.FRONTEND_URL,
-//     // origin: "https://blogapp-83fo.onrender.com",
-//     credentials: true,
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//   })
-// );
-
-
-
-const allowedOrigins = [
-  "http://localhost:5173", // dev
-  process.env.FRONTEND_URL, // production (from .env)
-];
-
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: "http://localhost:5173",
+    // origin:process.env.FRONTEND_URL,
+    // origin: "https://blogapp-83fo.onrender.com",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
+
+
+
+// const allowedOrigins = [
+//   "http://localhost:5173", 
+//   process.env.FRONTEND_URL, 
+// ];
+
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       if (!origin || allowedOrigins.includes(origin)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//     credentials: true,
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//   })
+// );
 
 // ✅ Increase Payload Limit to 100MB
 app.use(express.json({ limit: "100mb" }));

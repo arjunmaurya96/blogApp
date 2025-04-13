@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthProvider";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import {BACKEND_URL} from '../utils';
 
 const Blogs = () => {
   const { blogs, setBlogs } = useAuth(); // Get blogs from context
@@ -12,7 +13,7 @@ const Blogs = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const result = await axios.get("http://localhost:8080/api/blogs/allblogs");
+        const result = await axios.get(`${BACKEND_URL}/api/blogs/allblogs`);
         // console.log("cccc", result.data.data)
         setBlogs(result.data.data);
       } catch (error) {

@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import {BACKEND_URL} from '../utils'
 // import Cookies from 'js-cookie';
 
 const AuthContext = createContext();
@@ -23,7 +24,7 @@ const AuthProvider = ({ children }) => {
                 if (!token) {
                     throw new Error("Authentication token not found");
                 }
-                const response = await axios.get("http://localhost:8080/api/users/myprofile", {
+                const response = await axios.get(`${BACKEND_URL}/api/users/myprofile`, {
                     headers: {
                         Authorization: `Bearer ${token}`, 
                     },
@@ -48,7 +49,7 @@ const AuthProvider = ({ children }) => {
 
         const fetchBlogs = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/api/blogs/allblogs");
+                const response = await axios.get(`${BACKEND_URL}/api/blogs/allblogs`);
                 // console.log("Some data",response.data.data)
                 setBlogs(response.data.data);
             } catch (error) {
@@ -68,7 +69,7 @@ const AuthProvider = ({ children }) => {
                     throw new Error("Authentication token not found");
                 }
         
-                const response = await axios.get("http://localhost:8080/api/blogs/getmyblog", {
+                const response = await axios.get(`${BACKEND_URL}/api/blogs/getmyblog`, {
                     headers: {
                         Authorization: `Bearer ${token}`, 
                     },

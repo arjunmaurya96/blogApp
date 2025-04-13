@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import CreateBlog from "../dashboard/CreateBlog";
 import Dashboard from "../pages/Dashboard";
+import {BACKEND_URL} from '../utils';
 
 const Sidebar = () => {
     const navigate = useNavigate();
@@ -18,7 +19,7 @@ const Sidebar = () => {
     const handleLogout = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.get("http://localhost:8080/api/users/logout", { withCredentials: true });
+            const { data } = await axios.get(`${BACKEND_URL}/api/users/logout`, { withCredentials: true });
             setIsAuthenticated(false);
         } catch (error) {
             console.error(error);

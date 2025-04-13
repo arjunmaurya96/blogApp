@@ -44,7 +44,6 @@ const {isAuthenticated, setIsAuthenticated} = useAuth()
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/creators" element={<Creators />} />
         <Route exact path="/blog/:_id" element={<Details/>}/>
-
 {/* single page routes  */}
 {/* universal routes  */}
 <Route exact path="*" element={<NotFound/>}/>

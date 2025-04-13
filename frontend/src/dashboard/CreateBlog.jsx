@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import {BACKEND_URL} from '../utils';
 
 const CreateBlog = () => { 
   const navigate = useNavigate();
@@ -70,7 +71,7 @@ const CreateBlog = () => {
         filename: fileName,  
       };
   
-      const response = await axios.post("http://localhost:8080/api/blogs/create", payload, {
+      const response = await axios.post(`${BACKEND_URL}/api/blogs/create`, payload, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,

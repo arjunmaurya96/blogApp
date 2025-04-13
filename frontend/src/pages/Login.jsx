@@ -3,6 +3,7 @@ import { data, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useAuth } from '../context/AuthProvider';
+import {BACKEND_URL} from '../utils';
 
 
 
@@ -23,7 +24,7 @@ const Login = () => {
     }
     try {
       const response = await axios.post(
-        'http://localhost:8080/api/users/login',
+        `${BACKEND_URL}/api/users/login`,
         { email, password, role },
         {
           withCredentials: true,

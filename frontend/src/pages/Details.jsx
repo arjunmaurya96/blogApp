@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import {BACKEND_URL} from '../utils'
 
 const Details = () => {
   const { _id } = useParams();
@@ -12,7 +13,7 @@ const Details = () => {
     const fetchBlog = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/blogs/singleblog/${_id}`,
+          `${BACKEND_URL}/api/blogs/singleblog/${_id}`,
           {
             withCredentials: true,
             headers: {

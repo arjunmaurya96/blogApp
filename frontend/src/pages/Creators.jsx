@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import {BACKEND_URL} from '../utils';
 
 const Creators = () => {
   const [creators, setCreators] = useState([]);
@@ -7,7 +8,7 @@ const Creators = () => {
   useEffect(() => {
     const fetchCreators = async () => {
       try {
-        const { data } = await axios.get('http://localhost:8080/api/users/admins');
+        const { data } = await axios.get(`${BACKEND_URL}/api/users/admins`);
         // console.log('Fetched Creators:', data);
         setCreators(data); // Ensure 'authors' key exists
       } catch (error) {

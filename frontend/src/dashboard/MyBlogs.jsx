@@ -3,6 +3,7 @@ import axios from "axios";
 import { useAuth } from "../context/AuthProvider";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import {BACKEND_URL} from '../utils';
 
 const MyBlogs = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const MyBlogs = () => {
   // ✅ Delete Blog Function
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:8080/api/blogs/delete/${id}`, {
+      const res = await axios.delete(`${BACKEND_URL}/api/blogs/delete/${id}`, {
         withCredentials: true,
         headers: { Authorization: `Bearer ${token}` },
       });

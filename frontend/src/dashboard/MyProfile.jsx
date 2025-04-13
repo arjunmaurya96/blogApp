@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import {BACKEND_URL} from '../utils';
 
 const MyProfile = () => {
   const [profile, setProfile] = useState(null);
@@ -15,7 +16,7 @@ const MyProfile = () => {
       }
 
       try {
-        const { data } = await axios.get("http://localhost:8080/api/users/myprofile", {
+        const { data } = await axios.get(`${BACKEND_URL}/api/users/myprofile`, {
           headers: {
             Authorization: `Bearer ${token}`, // Send token in headers
           },

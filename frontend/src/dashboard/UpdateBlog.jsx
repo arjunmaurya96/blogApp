@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
+import {BACKEND_URL} from '../utils';
 
 const UpdateBlog = () => { 
   const { _id } = useParams();
@@ -20,7 +21,7 @@ const UpdateBlog = () => {
     const fetchBlog = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/blogs/singleblog/${_id}`,
+          `${BACKEND_URL}api/blogs/singleblog/${_id}`,
           {
             withCredentials: true,
             headers: {
@@ -90,7 +91,7 @@ const UpdateBlog = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8080/api/blogs/updateblog/${_id}`,
+        `${BACKEND_URL}/api/blogs/updateblog/${_id}`,
         {
           title,
           category,

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import {BACKEND_URL} from '../utils'
 
 const Creator = () => {
   const [admin, setAdmin] = useState([]);
@@ -8,7 +9,7 @@ const Creator = () => {
   useEffect(() => {
     const fetchAdmins = async () => {
       try {
-        const { data } = await axios.get('http://localhost:8080/api/users/admins');
+        const { data } = await axios.get(`${BACKEND_URL}/api/users/admins`);
         // console.log('User data:', data);
         setAdmin(data);
       } catch (error) {

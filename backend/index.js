@@ -27,7 +27,8 @@ connectDB();
 
 
 const allowedOrigins = [
-  "http://localhost:5173", 
+  "http://localhost:5173",
+  "https://blog-app-two-wine.vercel.app/" ,
   process.env.FRONTEND_URL, 
 ];
 
